@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState}from 'react';
 import './App.css';
+import Header from "./Components/Header.js";
+import Photo from "./Components/Photo.js";
+import styled from "styled-components"
 
-function App() {
+const AppStyle = styled.div`
+
+background-image: url("https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+max-width: 1200px;
+width: 100%;
+margin: 0 auto;
+height: 800px;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+`
+
+const App = () => {
+  const [profileName, setProfileName] = useState('Zac');
+  const [title, setTitle] = useState ('NASA Photo of the Day')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppStyle className="App">
+      <Header name = {profileName} title = {title}/>
+      <Photo title ={title}/>
+    </AppStyle>
   );
 }
 
